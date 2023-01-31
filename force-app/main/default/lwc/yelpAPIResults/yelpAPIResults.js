@@ -145,7 +145,9 @@ export default class YelpAPIResults extends LightningElement {
     }
 
      get message(){
-        return " Search nearby places to " + this.accountName ;
+        // return " Search nearby places to " + this.accountName ;
+
+        return `Search nearby places to ${this.accountName}`
       };
  
 }
