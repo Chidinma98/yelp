@@ -26,7 +26,7 @@
 
 
 
-                    <template for:each={tableData} for:item="theresults">     
+                    <template for:each={visibleRecords} for:item="theresults">     
                         <c-yelp-a-p-i-results-item key={theresults.Id} 
                             result-name={theresults.Name}
                             result-url={theresults.Url}

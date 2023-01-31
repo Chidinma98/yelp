@@ -5,6 +5,7 @@ import { getRecord } from 'lightning/uiRecordApi';
 const FIELDS = ['Account.BillingStreet', 'Account.BillingPostalCode', 'Account.Name'];
 
 export default class YelpAPIResults extends LightningElement {
+    visibleRecords
     dataResult;
     @api recordId;
     account;
@@ -158,6 +159,7 @@ this.dataResult = `${this.tableData.length} results found!`
 
 
     updateContactHandler(event){
+        this.visibleRecords = [...event.detail.records];
         console.log(' sliced records are' + event.detail.records)
     }
 
