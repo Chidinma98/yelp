@@ -5,6 +5,7 @@ import { getRecord } from 'lightning/uiRecordApi';
 const FIELDS = ['Account.BillingStreet', 'Account.BillingPostalCode', 'Account.Name'];
 
 export default class YelpAPIResults extends LightningElement {
+    dataResult;
     @api recordId;
     account;
     street;
@@ -118,7 +119,8 @@ export default class YelpAPIResults extends LightningElement {
         //console.log(JSON.stringify(finalData));
         this.tableData = [...finalData]; // all of the original data
         //this.filteredTableData = [...finalData]; // used for looping on LWC
-        console.log('length of the data' + this.tableData.length);
+        this.dataResult = `${this.tableData.length} results found!`
+        console.log('length of the data' + this.dataResult);
 
         // Sort the data by distance
         // https://stackoverflow.com/questions/8175093/simple-function-to-sort-an-array-of-objects

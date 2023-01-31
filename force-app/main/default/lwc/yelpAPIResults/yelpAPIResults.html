@@ -6,9 +6,20 @@
                 <div onkeyup={handleKeyUp}>
                     <lightning-input name="enter-search" 
                         label="Search food, shopping or entertainment" type="search"></lightning-input>
+                        
                 </div>
                 
-                <span if:true={queryTerm} class="searchText">Results sorted by distance<br></span>
+                <span if:true={queryTerm} class="searchText"> Results sorted by distance <br>
+                
+                </span>
+
+                <span if:true={queryTerm} class="searchText">
+                    <lightning-formatted-text value={dataResult}> </lightning-formatted-text>  <br>
+                
+                </span>
+
+
+
                 
                 <div if:true={queryTerm} class="resultContainer">
                     <template for:each={tableData} for:item="theresults">
