@@ -156,6 +156,11 @@ this.dataResult = `${this.tableData.length} results found!`
         }
     }
 
+
+    updateContactHandler(event){
+        console.log(' sliced records are' + event.detail.records)
+    }
+
      get message(){     
         return `Search nearby places to ${this.accountName}`
       };
