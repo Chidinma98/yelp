@@ -2,18 +2,20 @@
     <lightning-layout>
 
 <lightning-layout-item>
-    <lightning-button label="Previous" icon-name="utility:chevronleft" onclick={previousHandler}></lightning-button>
+    <lightning-button disabled={disablePrevious} label="Previous" icon-name="utility:chevronleft" onclick={previousHandler}></lightning-button>
 
 </lightning-layout-item>
 
-<lightning-layout-item flexibility="grow">
+<lightning-layout-item flexibility="grow" if:true={totalRecords}>
+
+    
 <p class="slds-text-align_center"> Display {currentPage} of {totalPage}</p>
  
 </lightning-layout-item>
 
 <lightning-layout-item>
 
-    <lightning-button label="Next" icon-name="utility:chevronright" onclick={nextHandler} icon-position="right"></lightning-button>
+    <lightning-button disabled={disableNext} label="Next" icon-name="utility:chevronright" onclick={nextHandler} icon-position="right"></lightning-button>
 
 </lightning-layout-item>
 

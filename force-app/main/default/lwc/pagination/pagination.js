@@ -16,11 +16,21 @@ set records(data){
     if(data){
         this.totalRecords = data;
         this.visibleRecords = data.slice(0, this.recordSize)
-        this.totalPage = data.length/Math.ceil(this.recordSize);
+        this.totalPage = Math.ceil(data.length/this.recordSize);
         this.updateRecords()
+
+        console.log('this is the total page ' );
     }
 
 
+}
+
+get disablePrevious(){
+    return this.currentPage<=1
+}
+
+get disableNext(){
+    return this.currentPage>=this.totalPage
 }
 
     nextHandler(){
