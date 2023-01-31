@@ -1,0 +1,48 @@
+.container {
+    background:#fff;
+    padding-bottom: 1rem;
+    display: block; /* so even the scroll bar will be there for us */
+    min-width: 100%;
+}
+
+.resultContainer {
+    padding-bottom: 1rem;
+    height: 270px;
+    overflow-y: scroll; /* vertical scroll bar */
+}
+
+.searchText {
+    font-size: x-small;
+}
+
+.resultTitle {
+    font-size: 16px;
+}
+
+.result {
+    border: 1px solid lightgray;
+    padding: .5rem;
+    width: 60%; /* was fit-content */
+    border-radius: 8px;
+    margin-top: 8px;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all .5s ease;
+}
+
+.result:hover {
+    background-color: rgba(146, 226, 255, 0.4);
+    border-radius: 16px;
+}
+
+.resultRatingImage {
+    width: 50%;
+}
+
+.resultFirstColumn {
+    width: 32em;
+}
+
+.resultSecondColumn {
+    width: 24em;
+}

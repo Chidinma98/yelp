@@ -1,0 +1,33 @@
+<template>
+    <lightning-card title="Search nearby places to this Account">
+        <lightning-layout>
+            <div class="slds-p-around_medium container">
+                
+                <div onkeyup={handleKeyUp}>
+                    <lightning-input name="enter-search" 
+                        label="Search food, shopping or entertainment" type="search"></lightning-input>
+                </div>
+                
+                <span if:true={queryTerm} class="searchText">Results sorted by distance<br></span>
+                
+                <div if:true={queryTerm} class="resultContainer">
+                    <template for:each={tableData} for:item="theresults">
+                        
+                        <c-yelp-a-p-i-results-item key={theresults.Id} 
+                            result-name={theresults.Name}
+                            result-url={theresults.Url}
+                            result-address={theresults.Address}
+                            result-city={theresults.City}
+                            result-state={theresults.State}
+                            result-phone={theresults.Phone}
+                            result-formatted-distance={theresults.FormattedDistance}
+                            result-formatted-review-count={theresults.FormattedReviewCount}
+                            result-rating-img={theresults.RatingImg}></c-yelp-a-p-i-results-item>
+                        
+                    </template>
+                </div>
+            
+            </div>
+        </lightning-layout>
+    </lightning-card>
+</template>
