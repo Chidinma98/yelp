@@ -4,6 +4,7 @@ export default class Pagination extends LightningElement {
 currentPage = 1
 totalRecords;
 recordSize = 3;
+totalPage = 0
 
 get records(){
     return this.visibleRecords
