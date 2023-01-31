@@ -11,7 +11,7 @@ export default class YelpAPIResults extends LightningElement {
     postalCode;
     searchAddress;
     accountName;
-    
+
     @wire(getRecord, { recordId: '$recordId', fields: FIELDS })
     wiredRecord({ error, data }) {
         if (error) {
@@ -31,7 +31,7 @@ export default class YelpAPIResults extends LightningElement {
         } else if (data) {
             this.account = data;
             this.accountName=this.account.fields.Name.value;
-           // console.log('Account ' + this.accountName);
+           // console.log('Account :' + this.accountName);
             this.street = this.account.fields.BillingStreet.value;
             this.postalCode = this.account.fields.BillingPostalCode.value;
             this.searchAddress = this.street + ' ' + this.postalCode;
@@ -144,8 +144,8 @@ export default class YelpAPIResults extends LightningElement {
         }
     }
 
-    get message(){
-        return " Search nearby places to " ;
+     get message(){
+        return " Search nearby places to.. "
       };
  
 }
