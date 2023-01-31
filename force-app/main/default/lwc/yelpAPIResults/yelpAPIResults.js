@@ -119,8 +119,8 @@ export default class YelpAPIResults extends LightningElement {
         //console.log(JSON.stringify(finalData));
         this.tableData = [...finalData]; // all of the original data
         //this.filteredTableData = [...finalData]; // used for looping on LWC
-        this.dataResult = `${this.tableData.length} results found!`
-        console.log('length of the data' + this.dataResult);
+      //  this.dataResult = `${this.tableData.length} results found!`
+     //   console.log(' data' + this.dataResult);
 
         // Sort the data by distance
         // https://stackoverflow.com/questions/8175093/simple-function-to-sort-an-array-of-objects
@@ -128,8 +128,14 @@ export default class YelpAPIResults extends LightningElement {
 
 // console.log( 'Table Data '+ this.tableData + "TABLE LENGTH");
 
+this.dataResult = `${this.tableData.length} results found!`
+        console.log(' data' + this.dataResult);
+
         
     }
+
+
+
 
     sort_by_key(array, key) {
         return array.sort(function(a, b) {

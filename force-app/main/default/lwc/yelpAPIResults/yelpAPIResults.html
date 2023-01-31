@@ -22,8 +22,11 @@
 
                 
                 <div if:true={queryTerm} class="resultContainer">
-                    <template for:each={tableData} for:item="theresults">
-                        
+
+
+
+
+                    <template for:each={tableData} for:item="theresults">     
                         <c-yelp-a-p-i-results-item key={theresults.Id} 
                             result-name={theresults.Name}
                             result-url={theresults.Url}
@@ -44,5 +47,10 @@
             
             </div>
         </lightning-layout>
+        <div slot="footer" class="slds-var-m-horizontal_medium">
+            <c-pagination></c-pagination>
+
+
+        </div>
     </lightning-card>
 </template>
