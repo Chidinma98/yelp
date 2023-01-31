@@ -129,7 +129,7 @@ export default class YelpAPIResults extends LightningElement {
 
 // console.log( 'Table Data '+ this.tableData + "TABLE LENGTH");
 
-this.dataResult = `${this.tableData.length} results found!`
+this.dataResult = `${this.tableData.length} results found`
         console.log(' data' + this.dataResult);
 
         

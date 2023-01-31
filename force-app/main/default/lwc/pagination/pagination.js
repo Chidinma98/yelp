@@ -1,7 +1,7 @@
 import { LightningElement, api } from 'lwc';
 
 export default class Pagination extends LightningElement {
-
+currentPage = 1
 totalRecords;
 recordSize = 3;
 
@@ -23,14 +23,28 @@ set records(data){
 }
 
     nextHandler(){
+        if(this.currentPage < this.totalPage ){
+            this.currentPage = this.currentPage+1
+            this.updateRecords()
+
+
+        }
 
     }
 
     previousHandler(){
+        if(this.currentPage > 1){
+            this.currentPage = this.currentPage -1
+            this.updateRecords();
+
+        }
 
     }
 
     updateRecords(){
+        const start = (this.currentPage-1)*this.recordSize
+        const end = this.recordSize*this.currentPage
+        this.visibleRecords = this.totalRecords.slice(start, end)
         this.dispatchEvent(new CustomEvent('update',{
             detail:{
                 records: this.visibleRecords
