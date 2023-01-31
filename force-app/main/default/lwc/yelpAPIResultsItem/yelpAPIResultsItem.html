@@ -1,0 +1,25 @@
+<template>
+     <div class="result">
+        <table>
+            <tr>
+                <td class="resultFirstColumn">
+                    <div>
+                        <a href={resultUrl} target="_blank">
+                        <h1>{resultName}</h1></a></div>
+                    {resultAddress}. {resultCity}, {resultState}
+                    <br>
+                    {resultPhone}
+                </td>
+                <td class="resultSecondColumn">
+                    {resultFormattedDistance}
+                    <br>
+                    {resultFormattedReviewCount}
+                    <br>
+                    <div class="resultRatingImage">
+                        <img src={resultRatingImg}>
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </div> 
+</template>
