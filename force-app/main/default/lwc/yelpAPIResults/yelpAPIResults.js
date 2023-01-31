@@ -2,7 +2,7 @@ import { LightningElement, track, wire, api } from 'lwc';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import { getRecord } from 'lightning/uiRecordApi';
 
-const FIELDS = ['Account.BillingStreet', 'Account.BillingPostalCode'];
+const FIELDS = ['Account.BillingStreet', 'Account.BillingPostalCode', 'Account.Name'];
 
 export default class YelpAPIResults extends LightningElement {
     @api recordId;
@@ -10,6 +10,8 @@ export default class YelpAPIResults extends LightningElement {
     street;
     postalCode;
     searchAddress;
+    accountName;
+    
     @wire(getRecord, { recordId: '$recordId', fields: FIELDS })
     wiredRecord({ error, data }) {
         if (error) {
@@ -28,6 +30,8 @@ export default class YelpAPIResults extends LightningElement {
             );
         } else if (data) {
             this.account = data;
+            this.accountName=this.account.fields.Name.value;
+           // console.log('Account ' + this.accountName);
             this.street = this.account.fields.BillingStreet.value;
             this.postalCode = this.account.fields.BillingPostalCode.value;
             this.searchAddress = this.street + ' ' + this.postalCode;
@@ -35,6 +39,11 @@ export default class YelpAPIResults extends LightningElement {
             console.log(this.searchAddress);
         }
     }
+
+    
+   
+
+   
     
     @track results = [];
     @track tableData = [];
@@ -57,6 +66,8 @@ export default class YelpAPIResults extends LightningElement {
         let data = await response.json(); // await because of async
         
         this.formatData(data);
+
+        
     }
 
     formatData(result){
@@ -64,6 +75,8 @@ export default class YelpAPIResults extends LightningElement {
         // loop handles all of the total data collection to separate it out
         // "bizArray":[
         
+           // console.log('The formatted data is ' + result.bizArray.size() + 'size');
+
         result.bizArray.forEach(data => { // bizArray is the group from the api
             let item = data; // data["name"];  // this way cherry picked the group if grouped
             let obj={ // the information I want to use
@@ -130,5 +143,10 @@ export default class YelpAPIResults extends LightningElement {
             this.fetchData();
         }
     }
+
+    get message(){
+        return " Search nearby places to " ;
+      };
+ 
 }
 
