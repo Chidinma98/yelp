@@ -31,7 +31,7 @@ export default class YelpAPIResults extends LightningElement {
         } else if (data) {
             this.account = data;
             this.accountName=this.account.fields.Name.value;
-           // console.log('Account :' + this.accountName);
+           
             this.street = this.account.fields.BillingStreet.value;
             this.postalCode = this.account.fields.BillingPostalCode.value;
             this.searchAddress = this.street + ' ' + this.postalCode;
@@ -75,7 +75,7 @@ export default class YelpAPIResults extends LightningElement {
         // loop handles all of the total data collection to separate it out
         // "bizArray":[
         
-           // console.log('The formatted data is ' + result.bizArray.size() + 'size');
+          // console.log('The formatted data is ' + result.bizArray.size() + 'size');
 
         result.bizArray.forEach(data => { // bizArray is the group from the api
             let item = data; // data["name"];  // this way cherry picked the group if grouped
@@ -95,10 +95,11 @@ export default class YelpAPIResults extends LightningElement {
             // save the information into Object array
             myObject[item.id] = obj;
             // console.log(JSON.stringify(item.city));
-        });
+        }
+        );
         
         //console.log(JSON.stringify(myObject));
-        
+       // console.log('The formatted data is ' + myObject.size() + 'size');
 
         // make the data an array for looping through in LWC
         //console.log(JSON.stringify(result));
@@ -117,11 +118,14 @@ export default class YelpAPIResults extends LightningElement {
         //console.log(JSON.stringify(finalData));
         this.tableData = [...finalData]; // all of the original data
         //this.filteredTableData = [...finalData]; // used for looping on LWC
-        
+        console.log('length of the data' + this.tableData.length);
 
         // Sort the data by distance
         // https://stackoverflow.com/questions/8175093/simple-function-to-sort-an-array-of-objects
         this.tableData = this.sort_by_key(this.tableData, 'Distance');
+
+// console.log( 'Table Data '+ this.tableData + "TABLE LENGTH");
+
         
     }
 
@@ -144,9 +148,7 @@ export default class YelpAPIResults extends LightningElement {
         }
     }
 
-     get message(){
-        // return " Search nearby places to " + this.accountName ;
-
+     get message(){     
         return `Search nearby places to ${this.accountName}`
       };
  
